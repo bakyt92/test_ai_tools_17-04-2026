@@ -46,15 +46,18 @@ scripts/sync-to-supabase.ts      ← run manually or via POST /api/sync
 
 ```
 /
-├── mock_orders.json
-├── .env.local
-├── package.json
+├── mock_orders.json             # ⚠ not yet added — copy from source repo
+├── package.json                 # ⚠ not yet added — Next.js project config
+├── .env.local                   # not committed — copy from .env.local.example
+├── .env.local.example           # env var template (committed)
 │
 ├── scripts/
 │   ├── upload-to-retailcrm.ts   # one-time: POST all 50 orders to RetailCRM
 │   └── sync-to-supabase.ts      # pull from RetailCRM → upsert Supabase + Telegram alert
 │
 └── src/
+    ├── lib/
+    │   └── supabase.ts          # shared Supabase client (server-side only)
     └── app/
         ├── layout.tsx
         ├── page.tsx             # main dashboard page
